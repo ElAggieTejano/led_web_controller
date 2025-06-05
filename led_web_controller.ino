@@ -80,6 +80,10 @@ void setup() {
   FastLED.addLeds<WS2811, LED_PIN_STRIP2, GRB>(leds2, NUM_LEDS);
 
   FastLED.clear(true);
+
+  // set leds2 to white on power on
+  fill_solid(leds2, NUM_LEDS, CRGB::White);
+  FastLED.show();
 }
 
 void loop() {
