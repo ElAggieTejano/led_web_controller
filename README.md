@@ -2,6 +2,8 @@
 
 `led_web_controller.ino` is an Arduino sketch for the ESP32 Dev board that sets up the board as a Wi-Fi access point and renders a website. Once a device (such as a phone or laptop) connects to the ESP32's network, users can navigate to `192.98.24.1` in a web browser to access a simple interface for controlling two sets of WS2811 LED strips.
 
+By default, the sketch will flash ESP32 Dev board to drive RGB LEDs (like WS2811) at GPIO5 (P5) and GPIO18 (P18).
+
 # Setup
 
 1. Download Arduino IDE from its official website.
