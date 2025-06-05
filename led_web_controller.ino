@@ -1,9 +1,10 @@
 #include <WiFi.h>
 #include <WebServer.h>
 #include <FastLED.h>
+#include "home.h"
 
 // WiFi Access Point config
-const char *ssid = "ESP32_LED_Controller";
+const char *ssid = "LED_Controller";
 const char* password = "12345678";
 IPAddress local_ip(192, 98, 24, 1);
 IPAddress gateway(192, 98, 24, 1);
@@ -15,7 +16,7 @@ bool cautionState = false;
 // LED config
 #define LED_PIN_STRIP1 5
 #define LED_PIN_STRIP2 18
-#define NUM_LEDS 30
+#define NUM_LEDS 255
 CRGB leds1[NUM_LEDS];
 CRGB leds2[NUM_LEDS];
 
@@ -30,24 +31,7 @@ void setupWiFi() {
 }
 
 void handleRoot() {
-  server.send(200, "text/html", R"rawliteral(
-    <html>
-    <head><title>ESP32 LED Control</title></head>
-    <body style="text-align:center;">
-      <h1>Strip 1 Control</h1>
-      <button onclick="location.href='/strip1/on'">ON</button>
-      <button onclick="location.href='/strip1/off'">OFF</button>
-      <button onclick="location.href='/strip1/amber'">Amber</button>
-      <button onclick="location.href='/strip1/red'">Red</button>
-      <button onclick="location.href='/strip1/caution'">Caution</button>
-      <h1>Strip 2 Control</h1>
-      <button onclick="location.href='/strip2/on'">ON</button>
-      <button onclick="location.href='/strip2/off'">OFF</button>
-      <button onclick="location.href='/strip2/amber'">Amber</button>
-      <button onclick="location.href='/strip2/red'">Red</button>
-    </body>
-    </html>
-  )rawliteral");
+  server.send(200, "text/html", HOME_HTML);
 }
 
 void applyLEDMode(CRGB *leds, LEDMode mode) {

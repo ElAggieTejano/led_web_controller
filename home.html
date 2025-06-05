@@ -1,0 +1,62 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LED Controller</title>
+  <style>
+    body {
+      background-color: black;
+      font-size: 8pt;
+      color: white;
+      text-align: center;
+    }
+    h1 {
+      margin: 4px
+    }
+    button {
+      font-size: 16pt;
+      padding: 16px 24px;
+      margin: 4px;
+      background-color: #444;
+      color: white;
+      border: 2px solid #ccc;
+      border-radius: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #666;
+    }
+    .on-button {
+      background-color: white;
+      color: black;
+    }
+
+    .amber-button {
+      color: orange;
+      border: 2px solid orange
+    }
+
+    .red-button {
+      color: red;
+      border: 2px solid red
+    }
+
+    .caution {
+      background-color: orange;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="location.href='/strip1/caution'" class="caution">Hazard Lights</button>
+  <h1>Strip 1 Control</h1>
+    <button onclick="location.href='/strip1/on'" class="on-button">ON</button>
+    <button onclick="location.href='/strip1/off'">OFF</button>
+    <button onclick="location.href='/strip1/amber'" class="amber-button">Amber</button>
+    <button onclick="location.href='/strip1/red'" class="red-button">Red</button>
+    <h1>Strip 2 Control</h1>
+    <button onclick="location.href='/strip2/on'" class="on-button">ON</button>
+    <button onclick="location.href='/strip2/off'">OFF</button>
+    <button onclick="location.href='/strip2/amber'" class="amber-button">Amber</button>
+    <button onclick="location.href='/strip2/red'" class="red-button">Red</button>
+</body>
+</html>
